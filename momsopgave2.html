@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Dette er en momsberegner</h1>
+    </header>
+    <main>
+      <label for="regnemaskine">Beregn momsen</label>
+      <input type="number" id="udregn" name="beloeb" />
+      <button id="beregnKnappen">=</button>
+      <h2 id="result">-</h2>
+    </main>
+    <footer></footer>
+
+    <script>
+      "use strict";
+
+      const momsRate = 0.2;
+
+      function beregnMoms() {
+        const beloeb = parseFloat(document.getElementById("udregn").value);
+        if (!isNaN(beloeb)) {
+          const momsBelob = beloeb * momsRate;
+
+          document.getElementById("result").textContent = `Momsbeløb: ${momsBelob.toFixed(2)} DKK`;
+        } else {
+          document.getElementById("result").textContent = "Indtast et gyldigt beløb.";
+        }
+      }
+
+      document.getElementById("beregnKnappen").addEventListener("click", beregnMoms);
+    </script>
+  </body>
+</html>
